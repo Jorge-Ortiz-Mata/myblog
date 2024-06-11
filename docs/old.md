@@ -1,7 +1,7 @@
 ## IMPORTANT: RUN THIS AFTER CREATING THE REPO FROM THE TEMPLATE!!!
 
 Once you've created this repository from the
-['IcaliaLabs/rails-google-cloud-quickstart'](https://github.com/IcaliaLabs/rails-google-cloud-quickstart)
+['IcaliaLabs/myblog'](https://github.com/IcaliaLabs/myblog)
 template, please run this script inside Visual Studio Code Dev Container - or if
 you have rails installed in the host, you can do it directly:
 
