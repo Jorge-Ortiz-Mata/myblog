@@ -1,6 +1,9 @@
 name: PR Clean Up
 
 on:
+  # Run manually from the Actions tab:
+  workflow_dispatch:
+
   pull_request:
     branches:
       - main
