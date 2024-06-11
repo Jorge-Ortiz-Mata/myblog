@@ -27,7 +27,7 @@ jobs:
     with:
       environment: staging
       deploy-name: staging
-      cloud-sql-instance: rails-google-cloud-quickstart:us-central1:pg-fourteen-a
+      cloud-sql-instance: myblog:us-central1:pg-fourteen-a
       cloud-sql-username-secret: database-username:latest
       cloud-sql-password-secret: database-password:latest
       cloud-run-service-suffix: ${{ needs.test-and-build.outputs.git-commit-short-sha }}

@@ -19,7 +19,7 @@ Before to launch the Docker containers, you have to change the workspace folder 
 
 1. Open the project with VSCode
 
-2. Search for "rails_google_cloud_quickstart" in the Dockerfile, docker compose files and the .devcontainer.json file and change the name.
+2. Search for "myblog" in the Dockerfile, docker compose files and the .devcontainer.json file and change the name.
 
 3. Initialize Docker
 

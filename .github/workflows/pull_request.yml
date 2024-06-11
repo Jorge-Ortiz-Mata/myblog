@@ -28,9 +28,9 @@ jobs:
     with:
       environment: ${{ github.head_ref }}
       deploy-name: pr${{ github.event.pull_request.number }}
-      cloud-sql-instance: rails-google-cloud-quickstart:us-central1:pg-fourteen-a
+      cloud-sql-instance: myblog:us-central1:pg-fourteen-a
       cloud-sql-username-secret: database-username:latest
       cloud-sql-password-secret: database-password:latest
       cloud-run-service-suffix: ${{ needs.test-and-build.outputs.git-commit-short-sha }}
-      cloud-run-container-image: us-central1-docker.pkg.dev/rails-google-cloud-quickstart/rails-google-cloud-quickstart/rails-google-cloud-quickstart-app@${{ needs.test-and-build.outputs.container-image-digest }}
+      cloud-run-container-image: us-central1-docker.pkg.dev/myblog/myblog/myblog-app@${{ needs.test-and-build.outputs.container-image-digest }}
     secrets: inherit
