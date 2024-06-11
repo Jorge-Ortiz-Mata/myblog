@@ -50,7 +50,7 @@ module IdentityPlatform
     end
 
     def self.expected_audience
-      ENV.fetch 'GOOGLE_CLOUD_PROJECT', 'myblog'
+      ENV.fetch 'GOOGLE_CLOUD_PROJECT', 'yorch-devs-staging'
     end
 
     def self.expected_issuer

@@ -65,7 +65,7 @@ These are the instructions you have to do on the Google Cloud PLatform in order 
 17. Copy and paste the following command in your terminal. Change the options according to your own configuration.
 
 ```bash
-gcloud iam service-accounts add-iam-policy-binding "paqueteria-martinez@paqueteria-martinez-ids.iam.gserviceaccount.com" --project="paqueteria-martinez-ids" --role="roles/iam.workloadIdentityUser" --member="principalSet://iam.googleapis.com/projects/850695705631/locations/global/workloadIdentityPools/paqueteria-martinez-pool/attribute.repository/Jorge-Ortiz-Mata/paqueteria-martinez"
+gcloud iam service-accounts add-iam-policy-binding "yorch-devs-staging@yorch-devs-staging.iam.gserviceaccount.com" --project="yorch-devs-staging" --role="roles/iam.workloadIdentityUser" --member="principalSet://iam.googleapis.com/projects/833586262248/locations/global/workloadIdentityPools/yorch-devs-staging-pool/attribute.repository/Jorge-Ortiz-Mata/myblog"
 ```
 
 18. Add your secrets on the Secret Manager service and the master key.

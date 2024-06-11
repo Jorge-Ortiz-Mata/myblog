@@ -1,12 +1,12 @@
 name: Cleanup Artifact Registry
 
-# on:
-#   # Run manually from the Actions tab:
-#   workflow_dispatch:
+on:
+  # Run manually from the Actions tab:
+  workflow_dispatch:
 
-#   schedule:
-#     # Run each night:
-#     - cron: '0 17 * * *'
+  schedule:
+    # Run each night:
+    - cron: '0 17 * * *'
 
 # Generate a GitHub token that can be exchanged with Google Cloud - see
 # https://github.com/google-github-actions/auth/tree/v0.6.0#setting-up-workload-identity-federation
@@ -25,8 +25,8 @@ jobs:
       - name: Authenticate to Google Cloud
         uses: google-github-actions/auth@v1.0.0
         with:
-          service_account: github-actions-runner@myblog.iam.gserviceaccount.com
-          workload_identity_provider: projects/000000000000/locations/global/workloadIdentityPools/devops/providers/github
+          service_account: yorch-devs-staging@yorch-devs-staging.iam.gserviceaccount.com
+          workload_identity_provider: projects/833586262248/locations/global/workloadIdentityPools/devops/providers/github
 
       - name: Set up Google Cloud SDK
         uses: google-github-actions/setup-gcloud@v1.0.0
@@ -36,7 +36,7 @@ jobs:
         run: |-
           echo "::set-output name=digests::$(
             gcloud artifacts docker images list \
-            us-central1-docker.pkg.dev/myblog/myblog/myblog-app \
+            us-central1-docker.pkg.dev/yorch-devs-staging/myblog/myblog \
             --filter="updateTime<$(date --date="7 days ago" --iso-8601=seconds) AND tags "'!'"~ [g-zG-Z]" \
             --format json \
             --include-tags | jq -r '.[].version')"
@@ -45,6 +45,6 @@ jobs:
         run: |-
           for row in $(echo "${{ steps.get-old-images.outputs.digests }}"); do
             gcloud artifacts docker images delete \
-              us-central1-docker.pkg.dev/myblog/myblog/myblog-app@${row} \
+              us-central1-docker.pkg.dev/yorch-devs-staging/myblog/myblog@${row} \
               --async --delete-tags --quiet
           done
